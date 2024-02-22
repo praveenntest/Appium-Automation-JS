@@ -3,6 +3,7 @@ describe("Android App Operations", () => {
     it("should perform app operations successfully", async () => {
         console.log("App launch successful");
         await driver.pause(5000);
+        
 
         await driver.terminateApp("com.ultralesson.ulshopify");
         console.log("App terminated");
