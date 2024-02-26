@@ -2,19 +2,21 @@
 
 //const { swipes } = require("../../utility/swipe")
 
-const swipe = async (element, maxScrollAttempts = 5) => {
+const swipe = async (element, maxScrollAttempts = 6) => {
     let elementFound = false;
     for (let attempt = 1; attempt <= maxScrollAttempts; attempt++) {
+        console.log(`Scroll Attempt ${attempt}`);
         // Check if the element is visible
         if (await element.isDisplayed()) {
+            console.log("Element Found!");
             elementFound = true;
             break; // Element is found, exit the loop
         }
     
         // Define swipe start and end coordinates for a scroll
-        const startX = 480; // X-coordinate (horizontal position)
-        const startY = 200; // Starting Y-coordinate (top of the screen)
-        const endY = 800; // Ending Y-coordinate (bottom of the screen)
+        const startX = 680; // X-coordinate (horizontal position)
+        const startY = 584; // Starting Y-coordinate (top of the screen)
+        const endY = 2220; // Ending Y-coordinate (bottom of the screen)
     
         // Define the action sequence for the swipe
         await driver
@@ -29,10 +31,14 @@ const swipe = async (element, maxScrollAttempts = 5) => {
             .up({ button: 0 })
             .perform();
     }
+    if (!elementFound) {
+        console.log("Footer Element not found after all scroll attempts");
+    }
 };
 
 
 const {expect} = require("chai");
+
 describe("Swipe Gestures", () => {
     it("should scroll until the footer element is visible on a mobile app and validate the footer text", async () => {
         await driver.pause(30000)
