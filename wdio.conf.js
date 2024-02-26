@@ -8,11 +8,10 @@ const ANDROID_CAPABILITIES = [
         // "appium:app": `${process.cwd()}/app/android_ul_shopify_app.apk`,
 
         "appium:platformName": "Android",
-        "appium:deviceName": "Pixel_4_API_30",
-        "appium:app": "/Users/admin/Downloads/ul-shopify.apk",
+        "appium:deviceName": "Pixel_3a_API_34_extension_level_7_arm64-v8a",
+        "appium:app": "/Users/testvagrant/Downloads/ul-shopify.apk",
         "appium:automationName": "UiAutomator2",
         "appium:udid": "emulator-5554",
-        "appium:platformVersion": "11.0",
        port: 4723,
     },
 ];
