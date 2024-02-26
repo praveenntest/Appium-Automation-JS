@@ -12,16 +12,18 @@ class LoginPage {
 
     async login(username, password) {
         await driver.pause(4000);
-        if((await $(this.locators.profileEle)).isDisplayed()) {
-        await $(this.locators.profileEle).click();
+        const profileElement = await $(this.locators.profileEle);
+        if(await profileElement.isDisplayed()) {
+            await profileElement.click(); 
         }
-        (await $(this.locators.loginButton)).click();
-        await driver.pause(4000);  
-        (await $(this.locators.emailInputField)).addValue(username);
-        (await $(this.locators.passwordInputField)).addValue(password);
-        (await $(this.locators.loginButton)).click();
+        await $(this.locators.loginButton).click();
         await driver.pause(4000);
-    } 
+        await $(this.locators.emailInputField).addValue(username);
+        await $(this.locators.passwordInputField).addValue(password);
+        await $(this.locators.loginButton).click();
+        await driver.pause(20000);
+    }
+    
 
     async emailInputFieldErrMsg(){
         return $(this.locators.emptyEmailField);

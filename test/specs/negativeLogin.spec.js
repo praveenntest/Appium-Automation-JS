@@ -11,4 +11,10 @@ describe('My Login Application',()=>{
         const passErrMsg = await (await LoginPage.emptyPassFeildErrMag()).getText();
         expect(passErrMsg).to.equal('Password field cannot be empty')
     })
+
+    it('should display error message with invalid email formate', async()=>{
+        await LoginPage.login("praveen","12345");
+        const invalidEmail = await (await LoginPage.invalidEmailFeildErrMsg()).getText();
+        expect(invalidEmail).to.equal('Email format is incorrect')
+    })
 })
