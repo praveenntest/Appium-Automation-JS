@@ -1,7 +1,6 @@
 const { expect } = require('chai');
 const LoginPage = require('../screenobjects/loginPage')
 const OtpPage = require('../screenobjects/otpPage');
-//const HomePage = require('../screenobjects/HomePage');
 const LogOut = require('../screenobjects/logOutPage');
 
 describe('My Login application', () => {
