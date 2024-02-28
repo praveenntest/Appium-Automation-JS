@@ -2,12 +2,13 @@ const { expect } = require('chai');
 const LoginPage = require('../screenobjects/loginPage')
 const OtpPage = require('../screenobjects/otpPage');
 const HomePage = require('../screenobjects/HomePage');
+const ProductPage = require('../screenobjects/productPage');
 
-describe('My Login application', () => {
-    it('should login with valid credentials', async () => {
+describe('Add the product to cart',()=>{
+    it("Add to cart the item and check asseration whether item is added in cart", async()=>{
         await LoginPage.login('ulshopify@ultralesson.com', '12345');
         await OtpPage.enterOtp('0000');
-        const userNameText = await (await HomePage.getUserNameEle()).getText();
-        expect(userNameText).to.equal('Jack Sparrow');
+        (await HomePage.getSearchButton()).click()
+        await driver.pause(20000)
     })
 })

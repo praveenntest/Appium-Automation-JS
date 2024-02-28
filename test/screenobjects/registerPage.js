@@ -19,6 +19,7 @@ class RegisterPage {
         await $(this.locators.profileEle).click();
         await $(this.locators.registerEle).click();
         await driver.pause(4000);
+        await driver.pause(5000);
         (await $(this.locators.fullnameEle)).addValue(fullname);
         (await $(this.locators.emailEle)).addValue(email);
         (await $(this.locators.passwordEle)).addValue(password);

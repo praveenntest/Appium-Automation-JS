@@ -8,11 +8,10 @@ const ANDROID_CAPABILITIES = [
         // "appium:app": `${process.cwd()}/app/android_ul_shopify_app.apk`,
 
         "appium:platformName": "Android",
-        "appium:deviceName": "Pixel_4_API_30",
-        "appium:app": "/Users/admin/Downloads/ul-shopify.apk",
+        "appium:deviceName": "Pixel_3a_API_34_extension_level_7_arm64-v8a",
+        "appium:app": "/Users/testvagrant/Downloads/ul-shopify.apk",
         "appium:automationName": "UiAutomator2",
         "appium:udid": "emulator-5554",
-        "appium:platformVersion": "11.0",
        port: 4723,
     },
 ];
@@ -175,7 +174,13 @@ exports.config = {
     // Test reporter for stdout.
     // The only one supported by default is 'dot'
     // see also: https://webdriver.io/docs/dot-reporter
-    reporters: ['spec'],
+   // reporters: ['spec'],
+
+   reporters: ['spec', ['allure', {
+    outputDir: 'allure-results',
+    disableWebdriverStepsReporting: true,
+    disableWebdriverScreenshotsReporting: false,
+}]],
 
     // Options to be passed to Mocha.
     // See the full list at http://mochajs.org/
